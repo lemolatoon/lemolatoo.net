@@ -14,7 +14,7 @@ const compileTexts = [
   l("keio-univ v43.2.0", 0.9),
   l("kcs v1959.2.1", 0.02),
   l("j-ka v1.1.1", 0.2),
-  l("lemolatoon v1.0.0", 0.001),
+  l("lemolatoon v1.0.0", 0.005),
 ];
 
 const ubuntu_mono = Ubuntu_Mono({
@@ -29,6 +29,7 @@ export default function Home() {
         <div
           className={`w-full h-full text-[#F2F2F2] sm:text-3xl ${ubuntu_mono.className}`}
         >
+          <div className="text-gray-400 text-base"># click to skip</div>
           <div>cargo build --release</div>
           {compiledText.map((text, i) => {
             return (
