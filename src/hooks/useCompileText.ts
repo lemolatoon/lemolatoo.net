@@ -16,7 +16,7 @@ export const useCompileText = (initLines: Line[]) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (Math.random() < (lines.at(0)?.probability ?? 0.001)) {
+      if (Math.random() < (lines.at(1)?.probability ?? 0.2)) {
         const line = lines.at(0);
         console.log(line);
         if (line !== undefined) {

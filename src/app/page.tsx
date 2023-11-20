@@ -1,8 +1,53 @@
+"use client";
+import { BlackOverlay } from "@/components/BlackOverlay";
 import Link from "@/components/Link";
+import { l, useCompileText } from "@/hooks/useCompileText";
+import { Ubuntu_Mono } from "next/font/google";
+const compileTexts = [
+  l("compiler_builtins v0.1.95", 0.8),
+  l("core v0.0.0", 0.8),
+  l("shanghai v2.1.5", 0.02),
+  l("tennis v4.2.1", 0.08),
+  l("keio-shiki v3.4.2", 0.8),
+  l("covid v0.2.1", 0.016),
+  l("vrchat v1.0.0", 0.02),
+  l("keio-univ v43.2.0", 0.9),
+  l("kcs v1959.2.1", 0.02),
+  l("j-ka v1.1.1", 0.2),
+];
 
+const ubuntu_mono = Ubuntu_Mono({
+  weight: "400",
+  subsets: ["latin"],
+});
 export default function Home() {
+  const { takenMilliSeconds, compiledText } = useCompileText(compileTexts);
+  console.log({ takenMilliSeconds, compiledText });
   return (
     <main>
+      <BlackOverlay done={takenMilliSeconds !== null}>
+        <div
+          className={`w-full h-full text-[#F2F2F2] sm:text-3xl ${ubuntu_mono.className}`}
+        >
+          <div>cargo build --release</div>
+          {compiledText.map((text, i) => {
+            return (
+              <div key={i} className="ml-8 mt-2">
+                <span className="text-[#16C60C]">Compiling</span>
+                <span>{`　${text}`}</span>
+              </div>
+            );
+          })}
+          {takenMilliSeconds && (
+            <div className="ml-8 mt-2">
+              <span className="text-[#16C60C]">Compiling</span>
+              <span>{`　release [optimized] target(s) in ${
+                takenMilliSeconds / 1000
+              }s`}</span>
+            </div>
+          )}
+        </div>
+      </BlackOverlay>
       <div className="m-8 sm:text-base text-sm">
         <h1 className="text-3xl">lemolatoonのポートフォリオ</h1>
         <h2 className="text-xl mt-8">経歴</h2>
