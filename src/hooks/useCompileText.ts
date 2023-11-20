@@ -15,6 +15,7 @@ export const useCompileText = (initLines: Line[]) => {
   const [last, setLast] = useState<number | null>(null);
 
   useEffect(() => {
+    if (last !== null) return;
     const interval = setInterval(() => {
       const index = indexRef.current;
       const probability =
@@ -32,7 +33,7 @@ export const useCompileText = (initLines: Line[]) => {
     }, 10);
 
     return () => clearInterval(interval);
-  }, [initLines, indexRef, setCompiledText]);
+  }, [initLines, indexRef, last, since, setCompiledText]);
 
   const takenMilliSeconds = last;
 
