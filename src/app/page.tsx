@@ -40,7 +40,7 @@ export default function Home() {
           })}
           {takenMilliSeconds && (
             <div className="ml-8 mt-2">
-              <span className="text-[#16C60C]">Compiling</span>
+              <span className="text-[#16C60C]">Finished</span>
               <span>{`　release [optimized] target(s) in ${
                 takenMilliSeconds / 1000
               }s`}</span>
