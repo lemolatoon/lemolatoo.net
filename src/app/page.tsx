@@ -2,8 +2,8 @@ import Link from "@/components/Link";
 
 export default function Home() {
   return (
-    <main className="text-sm">
-      <div className="m-8">
+    <main>
+      <div className="m-8 sm:text-base text-sm">
         <h1 className="text-3xl">lemolatoonのポートフォリオ</h1>
         <h2 className="text-xl mt-8">経歴</h2>
         <ul className="mt-2">
