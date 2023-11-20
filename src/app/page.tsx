@@ -19,7 +19,7 @@ export default function Home() {
         <h2 className="text-xl mt-8">アルバイト</h2>
         <ul className="mt-2">
           <li>
-            2022年10月～　株式会社トゥギャッターアルバイト(2023/11/20現在)
+            2022年10月～　トゥギャッター株式会社アルバイト(2023/11/20現在)
           </li>
         </ul>
         <h2 className="text-xl mt-8">アクティビティ</h2>
