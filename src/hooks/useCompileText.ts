@@ -18,7 +18,6 @@ export const useCompileText = (initLines: Line[]) => {
     const interval = setInterval(() => {
       if (Math.random() < (lines.at(1)?.probability ?? 0.2)) {
         const line = lines.at(0);
-        console.log(line);
         if (line !== undefined) {
           setLines((prev) => prev.slice(1));
           setCompiledText((prev) => [...prev, line.text]);

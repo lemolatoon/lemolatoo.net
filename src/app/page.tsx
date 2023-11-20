@@ -23,7 +23,6 @@ const ubuntu_mono = Ubuntu_Mono({
 });
 export default function Home() {
   const { takenMilliSeconds, compiledText } = useCompileText(compileTexts);
-  console.log({ takenMilliSeconds, compiledText });
   return (
     <main>
       <BlackOverlay done={takenMilliSeconds !== null}>
