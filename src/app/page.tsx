@@ -14,6 +14,7 @@ const compileTexts = [
   l("keio-univ v43.2.0", 0.9),
   l("kcs v1959.2.1", 0.02),
   l("j-ka v1.1.1", 0.2),
+  l("lemolatoon v1.0.0", 0.02),
 ];
 
 const ubuntu_mono = Ubuntu_Mono({
