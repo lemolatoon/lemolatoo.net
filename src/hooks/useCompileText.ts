@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Line = {
   text: string;
@@ -9,17 +9,20 @@ export const l = (text: string, probability: number): Line => ({
   probability,
 });
 export const useCompileText = (initLines: Line[]) => {
-  const [lines, setLines] = useState<Line[]>(initLines);
+  const indexRef = useRef<number>(0);
   const [compiledText, setCompiledText] = useState<string[]>([]);
   const [since] = useState<number>(Date.now());
   const [last, setLast] = useState<number | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (Math.random() < (lines.at(1)?.probability ?? 0.2)) {
-        const line = lines.at(0);
+      const index = indexRef.current;
+      const probability =
+        index != 0 ? initLines.at(index - 1)?.probability ?? 0.2 : 1;
+      if (Math.random() < probability) {
+        const line = initLines.at(index);
         if (line !== undefined) {
-          setLines((prev) => prev.slice(1));
+          indexRef.current = index + 1;
           setCompiledText((prev) => [...prev, line.text]);
         } else {
           setLast(last === null ? Date.now() - since : last);
@@ -29,7 +32,7 @@ export const useCompileText = (initLines: Line[]) => {
     }, 10);
 
     return () => clearInterval(interval);
-  }, [lines, setLines, setCompiledText]);
+  }, [initLines, indexRef, setCompiledText]);
 
   const takenMilliSeconds = last;
 
