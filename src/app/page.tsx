@@ -15,7 +15,7 @@ const compileTexts = [
   l("kcs v1959.2.1", 0.02),
   l("j-ka v1.1.1", 0.2),
   l("lemolatoon v1.0.0", 0.01),
-];
+] as const;
 
 const ubuntu_mono = Ubuntu_Mono({
   weight: "400",
