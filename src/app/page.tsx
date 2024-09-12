@@ -25,7 +25,7 @@ export default function Home() {
   const { takenMilliSeconds, compiledText } = useCompileText(compileTexts);
   return (
     <main>
-      <BlackOverlay done={takenMilliSeconds !== null}>
+      <BlackOverlay done={takenMilliSeconds !== undefined}>
         <div
           className={`w-full h-full text-[#F2F2F2] sm:text-3xl ${ubuntu_mono.className}`}
         >
