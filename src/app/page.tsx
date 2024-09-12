@@ -64,24 +64,52 @@ export default function Home() {
         </ul>
         <h2 className="text-xl mt-8">アルバイト</h2>
         <ul className="mt-2">
-          <li>
-            2022年10月～　トゥギャッター株式会社アルバイト(2023/11/20現在)
+          <li className="mb-4">
+            <div className="grid grid-cols-1 gap-1 md:flex md:justify-start md:space-x-4">
+              <span>2022年10月～2023年12月</span>
+              <span>トゥギャッター株式会社</span>
+              <span>アルバイト</span>
+            </div>
+            <div className="mt-2 pl-4 border-l-2 border-gray-300">
+              <p>
+                Typescript/Reactを用いて、主にWebフロントエンドをやっていました。
+              </p>
+            </div>
+          </li>
+          <li className="mb-4">
+            <div className="grid grid-cols-1 gap-1 md:flex md:justify-start md:space-x-4">
+              <span>2024年1月～2024年7月</span>
+              <span>株式会社Preferred Networks</span>
+              <span>Part-time Engineer</span>
+            </div>
+            <div className="mt-2 pl-4 border-l-2 border-gray-300">
+              <p>
+                C++を用いて、MN-Coreのコンパイラの実装をやっていました。留学のため中断。
+              </p>
+            </div>
           </li>
         </ul>
         <h2 className="text-xl mt-8">アクティビティ</h2>
         <ul className="mt-2">
-          <li className="mt-1">
+          <li className="mt-2 md:mt-1">
             2022年度　セキュリティ・キャンプ全国大会オンライン
             Cコンパイラゼミ修了
           </li>
-          <li className="mt-1">
+          <li className="mt-2 md:mt-1">
             2023年度　セキュリティ・キャンプ全国大会オンライン OS自作ゼミ修了
           </li>
-          <li className="mt-1">
+          <li className="mt-2 md:mt-1">
             2023年度　未踏ターゲット(リザバーコンピューティング技術を活用したソフトウェア開発分野)
             <Link href="https://www.ipa.go.jp/jinzai/mitou/target/2023_reservoir/gaiyou_ky-2.html">
               採択
             </Link>
+          </li>
+          <li className="mt-2 md:mt-1">
+            2024年夏　The University of Chicago:
+            <Link href="https://cs.uchicago.edu/academics/undergraduate/summer-research/student-summer-research-fellowship-program/">
+              Student Summer Research Fellowship Program
+            </Link>
+            に参加
           </li>
         </ul>
         <h2 className="text-xl mt-8">登壇・発表資料</h2>
