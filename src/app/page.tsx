@@ -21,11 +21,18 @@ const ubuntu_mono = Ubuntu_Mono({
   weight: "400",
   subsets: ["latin"],
 });
+const BAR_WIDTH = 25;
 export default function Home() {
   const { takenMilliSeconds, compiledText } = useCompileText(compileTexts);
+  const is_compile_done = takenMilliSeconds !== undefined;
+  const compiling_bar_width =
+    BAR_WIDTH * (compiledText.length / compileTexts.length);
+  const bar_string = `[${"=".repeat(compiling_bar_width)}>${"\u00A0".repeat(BAR_WIDTH - compiling_bar_width)}]`;
+  const n_compiled = compiledText.length;
+  const n_total = compileTexts.length;
   return (
     <main>
-      <BlackOverlay done={takenMilliSeconds !== undefined}>
+      <BlackOverlay done={is_compile_done}>
         <div
           className={`w-full h-full text-[#F2F2F2] sm:text-3xl ${ubuntu_mono.className}`}
         >
@@ -39,12 +46,17 @@ export default function Home() {
               </div>
             );
           })}
-          {takenMilliSeconds && (
+          {is_compile_done ? (
             <div className="ml-8 mt-2">
               <span className="text-[#16C60C]">Finished</span>
               <span>{`　release [optimized] target(s) in ${
                 takenMilliSeconds / 1000
               }s`}</span>
+            </div>
+          ) : (
+            <div className="ml-8 mt-2">
+              <span className="text-[#25B7DA]">&nbsp;Building</span>
+              <span>{`　 ${bar_string}\u00A0${n_compiled}/${n_total}:\u00A0${compileTexts[Math.min(n_compiled, n_total - 1)].text}`}</span>
             </div>
           )}
         </div>
