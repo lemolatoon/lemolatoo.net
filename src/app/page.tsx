@@ -100,6 +100,18 @@ export default function Home() {
               </p>
             </div>
           </li>
+          <li className="mb-4">
+            <div className="grid grid-cols-1 gap-1 md:flex md:justify-start md:space-x-4">
+              <span>2024年9月～</span>
+              <span>株式会社Preferred Networks</span>
+              <span>Part-time Engineer</span>
+            </div>
+            <div className="mt-2 pl-4 border-l-2 border-gray-300">
+              <p>
+                留学から帰ってきてから、再びC++を用いて、MN-Coreのコンパイラの実装をやっています。
+              </p>
+            </div>
+          </li>
         </ul>
         <h2 className="text-xl mt-8">アクティビティ</h2>
         <ul className="mt-2">
